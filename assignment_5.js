@@ -17,13 +17,13 @@ promise = addAsynchronously(numbersToBeAdded[count], numbersToBeAdded[++count])
 
 sendPromise(promise);
 
-function sendPromise(pro) {
+function sendPromise(promise) {
 
   if (count > numbersToBeAdded.length - 1) {
     process.exit(1);
   }
 
-  pro.then((data) => {
+  promise.then((data) => {
     console.log(data)
     let promise = addAsynchronously(data, numbersToBeAdded[++count])
     sendPromise(promise);
