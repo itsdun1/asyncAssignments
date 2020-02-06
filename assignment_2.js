@@ -20,7 +20,7 @@ addAsynchronously(numbersToBeAdded[count], numbersToBeAdded[++count], function (
 })
 
 function callback(err, sum, count) {
-  if (count == 15) {
+  if (count == numbersToBeAdded.length - 1) {
     console.log("Exiting ......")
     process.exit(1);
   }
