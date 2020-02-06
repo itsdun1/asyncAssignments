@@ -1,16 +1,21 @@
 //Print 1 to 50 after after a gap of 1 second between two numbers.
 //Print 'Bye' at the end. Use node.js as a runtime engine for this.
 
-var count = 0;
-
-function printCount() {
-  console.log(++count);
-  if (count >= 50) {
-    console.log("Bye");
-    process.exit(1);
-  }
+function addAsynchronously(a, callback) {
+  setTimeout(function () {
+    return callback(a);
+  }, 1000 * a);
 }
 
-setInterval(() => {
-  printCount();
-}, 1000);
+function printCount(count) {
+  // console.log("here")
+  console.log(count);
+}
+
+var count = 0;
+
+while (count < 50) {
+  // console.log("here")
+  addAsynchronously(++count, printCount)
+}
+
